@@ -37,20 +37,20 @@ def GetChapterUrlList(addr,startchap):
     soup = BeautifulSoup(res,"html5lib")
     target = soup.find_all('a')
     startpos = startchap + 31
-    target = target[startpos:1414]
+    target = target[startpos:1415]
     addrlist = []
     for t in target:
         addrlist.append("http://www.biqugex.com"+t['href'])
     return addrlist
     
 if __name__=="__main__":
-    fid = open("novel655-.txt","a")
+    fid = open("1263-.txt","a")
     addr = "http://www.biqugex.com/book_795/"
-    i = 663
+    i = 1383
     addrlist = GetChapterUrlList(addr,i)
     for url in addrlist:
         AppendUrlToFile(fid,url)
         i = i + 1
         print("第 "+str(i)+" 章抓取完毕!")
-        time.sleep(2)
+        time.sleep(1)
     fid.close()
